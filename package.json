@@ -1,5 +1,22 @@
 {
-  "dependencies": {
-    "puppeteer": "^10.4.0"
-  }
+    "name": "mlwbd-link-finder",
+    "version": "1.0.0",
+    "description": "Find movies link directly from mlwbd",
+    "main": "web.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "movies",
+        "mlwbd"
+    ],
+    "author": "jane-doe",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.9.8",
+        "puppeteer": "^10.4.0"
+    },
+    "engines": {
+        "node": "14.x"
+    }
 }

@@ -14,8 +14,7 @@ function validURL(str) {
     return !!pattern.test(str);
 }
 
-async function start() {
-    console.log("start", new Date(Date.now()));
+const finder = async() => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto("https://mlwbd.top/?s=the matrix");
@@ -45,7 +44,7 @@ async function start() {
 
         let type = await element.getProperty("type");
         type = await type.jsonValue();
-        console.log(type);
+
         if (type === "hidden") {
             inputValue = await element.getProperty("value");
             inputValue = await inputValue.jsonValue();
@@ -56,9 +55,9 @@ async function start() {
             }
         }
     }
-    console.log(inputsValues);
-    await browser.close();
-    console.log("end", new Date(Date.now()));
-}
 
-start();
+    await browser.close();
+    return inputsValues;
+};
+
+exports.finder = finder;
