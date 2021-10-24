@@ -200,7 +200,7 @@
                 }
                 this.loading = true;
                 axios
-                    .get(`http://localhost:3331/${this.user_text}`)
+                    .get(`/${this.user_text}`)
                     .then((res) => {
                         this.movies = res.data;
                         this.loading = false;
