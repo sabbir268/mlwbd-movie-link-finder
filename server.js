@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express();
-const { finder } = require("./finder");
-app.get("/", (req, res) => {
-    finder().then((data) => {
+const cors = require("cors");
+// enabling cors for all
+app.use(cors());
+// Enable pre-flight
+app.options("*", cors());
+const { finderNext } = require("./finderNext");
+app.get("/:movie_name", (req, res) => {
+    const { movie_name } = req.params;
+    finderNext(movie_name).then((data) => {
         res.send(data);
     });
 });

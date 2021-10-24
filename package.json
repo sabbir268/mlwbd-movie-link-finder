@@ -13,6 +13,9 @@
     "author": "jane-doe",
     "license": "MIT",
     "dependencies": {
+        "axios": "^0.23.0",
+        "cheerio": "^1.0.0-rc.10",
+        "cors": "^2.8.5",
         "express": "^4.9.8",
         "puppeteer": "^10.4.0"
     },
