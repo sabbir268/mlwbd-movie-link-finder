@@ -1,8 +1,11 @@
-const axios = require("axios");
 const cheerio = require("cheerio");
+const axios = require("axios");
 
 const finderNext = async(movieSearchString) => {
     const response = await axios.get(`https://mlwbd.top/?s=${movieSearchString}`);
+    if (response.status != 200) {
+        return "Something went wrong";
+    }
     const $ = cheerio.load(response.data);
     const murl = $(".title>a").attr("href");
     if (murl) {
