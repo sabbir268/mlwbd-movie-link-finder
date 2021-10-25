@@ -19,7 +19,7 @@ app.get("/:movie_name", (req, res) => {
             res.send(data);
         })
         .catch((err) => {
-            res.send(err.message);
+            res.send(err);
         });
 });
 
