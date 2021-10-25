@@ -7,9 +7,13 @@ const finderNext = async(movieSearchString) => {
     const murl = $(".title>a").attr("href");
     if (murl) {
         const moviePage = await axios.get(murl);
-        const $movie = cheerio.load(moviePage.data);
-        const liks = $movie("input[name=FU]").val();
-        return liks;
+        if (moviePage.status == 200 || moviePage.status == 201) {
+            const $movie = cheerio.load(moviePage.data);
+            const liks = $movie("input[name=FU]").val();
+            return liks;
+        } else {
+            return "Something went wrong";
+        }
     } else {
         return "Not found!";
     }
