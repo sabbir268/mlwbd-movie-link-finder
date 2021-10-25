@@ -9,6 +9,9 @@ const { finderNext } = require("./finderNext");
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 });
+app.get("/test/a", (req, res) => {
+    res.send("Test");
+});
 app.get("/:movie_name", (req, res) => {
     const { movie_name } = req.params;
     finderNext(movie_name)
@@ -16,7 +19,7 @@ app.get("/:movie_name", (req, res) => {
             res.send(data);
         })
         .catch((err) => {
-            res.send(err);
+            res.send(err.message);
         });
 });
 
