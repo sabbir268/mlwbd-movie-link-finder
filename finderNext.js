@@ -2,6 +2,7 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 
 const finderNext = async(movieSearchString) => {
+    console.log(movieSearchString);
     const response = await axios.get(`https://mlwbd.top/?s=${movieSearchString}`);
     console.log(response);
     if (response.status != 200) {
